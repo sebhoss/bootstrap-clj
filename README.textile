@@ -1,0 +1,48 @@
+h1. bootstrap-clj
+
+p. Bootstrapping REPL-based Clojure development.
+
+h2. Usage
+
+p. The namespace @com.github.sebhoss.bootstrap.repl@ offers the following functions:
+
+* @(load-namespaces project)@ Loads all namespaces matching the given regular expression
+* @(load-helpers)@ Loads helper functions for REPL-based work, such as @doc@, @refresh@, @source@, etc.
+
+
+h2. Example
+
+p. Place the following in @user.clj@ or a similar file which gets loaded once your REPL session starts. ("see bootstraps own bootstrap":https://github.com/sebhoss/bootstrap-clj/src/bootstrap/clojure/com/github/sebhoss/bootstrap/bootstrap.clj )
+
+bc.. (require '[com.github.sebhoss.bootstrap.repl :refer :all])
+
+; Load project namespaces
+(load-namespaces #".*?bootstrap")
+
+; 'refresh', 'doc', 'source', etc. support
+(load-helpers)
+
+p. Happy hacking!
+
+
+h2. Integration
+
+h3. Maven
+
+bc. <dependencies>
+  <dependency>
+    <groupId>com.github.sebhoss</groupId>
+    <artifactId>bootstrap-clj</artifactId>
+    <version>[1.0.0,2.0.0)</version>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
+
+h3. Leiningen
+
+bc. [com.github.sebhoss/bootstrap-clj "[1.0.0,2.0.0)" :scope "test"]
+
+
+h2. License
+
+p. This program is free software. It comes without any warranty, to the extent permitted by applicable law. You can redistribute it and/or modify it under the terms of the Do What The Fuck You Want To Public License, Version 2, as published by Sam Hocevar. See "http://www.wtfpl.net/":http://www.wtfpl.net/ for more details.
