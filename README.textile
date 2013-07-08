@@ -6,7 +6,7 @@ h2. Usage
 
 p. The namespace @com.github.sebhoss.bootstrap.repl@ offers the following functions:
 
-* @(load-namespaces project)@ Loads all namespaces matching the given regular expression and prefixes them with their own name.
+* @(load-namespaces regex)@ Loads all namespaces matching the given regular expression and prefixes them with their own name.
 * @(load-helpers)@ Loads helper functions for REPL-based work, such as @doc@, @refresh@, @source@, etc.
 
 

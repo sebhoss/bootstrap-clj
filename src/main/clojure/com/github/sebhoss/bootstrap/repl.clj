@@ -17,8 +17,8 @@
 (defn- require-namespace [[namespace alias]]
   (require (vector namespace :as alias)))
 
-(defn load-namespaces [project]
-  (let [project-namespace? #(not (blank? (re-find project (.toString %))))
+(defn load-namespaces [regex]
+  (let [project-namespace? #(not (blank? (re-find regex (.toString %))))
         namespaces (find-namespaces (filter project-namespace? (classpath)))
         namespace-aliases (map ns-alias-split namespaces)]
     (when (empty? (remove nil? (map require-namespace namespace-aliases)))
