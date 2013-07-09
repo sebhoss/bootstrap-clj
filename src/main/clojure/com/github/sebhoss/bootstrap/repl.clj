@@ -8,7 +8,7 @@
             [clojure.tools.namespace.find :refer [find-namespaces]]
             [clojure.string :refer [blank? split]]))
 
-(defn- ns-alias [namespace]
+(defn- ns-alias [^clojure.lang.Symbol namespace]
   (symbol (last (split (.toString namespace) #"\."))))
 
 (defn- ns-alias-split [namespace]
