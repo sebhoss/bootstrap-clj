@@ -8,5 +8,5 @@
 ; Load project namespaces
 (load-namespaces #".*?bootstrap")
 
-; 'refresh', 'doc', 'source', etc. support
+; 'clojure.test', 'clojure.repl' and 'clojure.tools.namespace.repl' support
 (load-helpers)
