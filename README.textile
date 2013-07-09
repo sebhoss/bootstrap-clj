@@ -7,7 +7,7 @@ h2. Usage
 p. The namespace @com.github.sebhoss.bootstrap.repl@ offers the following functions:
 
 * @(load-namespaces regex)@ Loads all namespaces matching the given regular expression and prefixes them with their own name.
-* @(load-helpers)@ Loads helper functions for REPL-based work, such as @doc@, @refresh@, @source@, etc.
+* @(load-helpers)@ Loads helper functions for REPL-based work. Includes all of @clojure.test@ such as @run-all-tests@, all of @clojure.repl@ such as @doc@, @source@ and all of @clojure.tools.namespace.repl@ such as @refresh@, etc..
 
 
 h2. Example
@@ -19,7 +19,7 @@ bc.. (require '[com.github.sebhoss.bootstrap.repl :refer :all])
 ; Load project namespaces
 (load-namespaces #".*?bootstrap")
 
-; 'refresh', 'doc', 'source', etc. support
+; 'clojure.test', 'clojure.repl' and 'clojure.tools.namespace.repl' support
 (load-helpers)
 
 p. Happy hacking!
