@@ -33,14 +33,14 @@ bc. <dependencies>
   <dependency>
     <groupId>com.github.sebhoss</groupId>
     <artifactId>bootstrap-clj</artifactId>
-    <version>[1.0.0,2.0.0)</version>
+    <version>[1.0.1,2.0.0)</version>
     <scope>test</scope>
   </dependency>
 </dependencies>
 
 h3. Leiningen
 
-bc. [com.github.sebhoss/bootstrap-clj "[1.0.0,2.0.0)" :scope "test"]
+bc. [com.github.sebhoss/bootstrap-clj "[1.0.1,2.0.0)" :scope "test"]
 
 
 h2. License
