@@ -1,4 +1,4 @@
-h1. bootstrap-clj
+h1. bootstrap-clj "!https://travis-ci.org/sebhoss/bootstrap-clj.png!":https://travis-ci.org/sebhoss/finj "!https://www.ohloh.net/p/bootstrap-clj/widgets/project_thin_badge.gif!":https://www.ohloh.net/p/bootstrap-clj/
 
 p. Bootstrapping REPL-based Clojure development.
 
