@@ -24,6 +24,6 @@
       :ok)))
 
 (defn load-helpers []
-  (require '[clojure.tools.namespace.repl :refer [refresh]])
+  (require '[clojure.tools.namespace.repl :refer :all])
   (require '[clojure.repl :refer :all])
   (require '[clojure.test :refer :all]))
