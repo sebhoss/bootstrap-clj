@@ -7,8 +7,8 @@
             [clojure.tools.namespace.find :refer [find-namespaces]]
             [clojure.string :refer [blank? split]]))
 
-(defn- ns-alias [^clojure.lang.Symbol namespace]
-  (symbol (last (split (.toString namespace) #"\."))))
+(defn- ns-alias [namespace]
+  (symbol (last (split (str namespace) #"\."))))
 
 (defn- ns-alias-split [namespace]
   (vector namespace (ns-alias namespace)))
@@ -17,7 +17,7 @@
   (require (vector namespace :as alias)))
 
 (defn load-namespaces [regex]
-  (let [project-namespace? #(not (blank? (re-find regex (.toString %))))
+  (let [project-namespace? #(not (blank? (re-find regex (str %))))
         namespaces (find-namespaces (filter project-namespace? (classpath)))
         namespace-aliases (map ns-alias-split namespaces)]
     (when (empty? (remove nil? (map require-namespace namespace-aliases)))
