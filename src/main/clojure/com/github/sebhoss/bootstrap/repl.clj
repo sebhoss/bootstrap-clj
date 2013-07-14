@@ -27,3 +27,21 @@
   (require '[clojure.tools.namespace.repl :refer :all])
   (require '[clojure.repl :refer :all])
   (require '[clojure.test :refer :all]))
+
+(defmacro test-shortcut
+  "Defines a shortcut for (run-all-tests) called (rat) which can be called without any argument
+   to execute all tests matching the given macro regex. Otherwise the given parameter for (rat)
+   is used to determine which tests to run.
+
+   Parameter:
+     * regex - Regular expression to match all namespaces which contain tests
+
+   Example:
+     * (test-shortcut #\"foo.bar.*-test\")
+       => Calling (rat) runs all tests in namespaces matching the above regex.
+          Calling (rat \"baz\") runs all tests inside the 'foo.bar.baz-test' namespace."
+  [regex]
+  (let [ns-regex (clojure.string/replace (str regex) #"\*" "%s")]
+    `(defn rat
+       ([] (run-all-tests ~regex))
+       ([~'namespace] (run-all-tests (re-pattern (format ~ns-regex ~'namespace)))))))
