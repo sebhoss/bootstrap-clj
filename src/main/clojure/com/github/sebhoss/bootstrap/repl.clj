@@ -16,14 +16,21 @@
 (defn- require-namespace [[namespace alias]]
   (require (vector namespace :as alias)))
 
-(defn load-namespaces [regex]
+(defn load-namespaces
+  "Loads all namespace on the current classpath matching the given regex."
+  [regex]
   (let [project-namespace? #(not (blank? (re-find regex (str %))))
         namespaces (find-namespaces (filter project-namespace? (classpath)))
         namespace-aliases (map ns-alias-split namespaces)]
     (when (empty? (remove nil? (map require-namespace namespace-aliases)))
       :ok)))
 
-(defn load-helpers []
+(defn load-helpers
+  "Loads REPL helper functions. Includes every var from:
+    - clojure.tools.namespace.repl
+    - clojure.repl
+    - clojure.test"
+  []
   (require '[clojure.tools.namespace.repl :refer :all])
   (require '[clojure.repl :refer :all])
   (require '[clojure.test :refer :all]))
