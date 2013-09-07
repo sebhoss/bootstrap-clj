@@ -5,7 +5,8 @@
 (ns com.github.sebhoss.bootstrap.repl
   (:require [clojure.java.classpath :refer [classpath]]
             [clojure.tools.namespace.find :refer [find-namespaces]]
-            [clojure.string :refer [blank? split]]))
+            [clojure.string :refer [blank? split]]
+            [clojure.test :as test]))
 
 (defn- ns-alias [namespace]
   (symbol (last (split (str namespace) #"\."))))
@@ -49,7 +50,7 @@
           Calling (rat \"baz\") runs all tests inside the 'foo.bar.baz-test' namespace."
   [regex]
   (fn
-    ([] (clojure.test/run-all-tests regex))
+    ([] (test/run-all-tests regex))
     ([namespace]
       (let [ns-regex (clojure.string/replace (str regex) #"\*" "%s")]
-        (clojure.test/run-all-tests (re-pattern (format ~ns-regex ~'namespace)))))))
+        (test/run-all-tests (re-pattern (format ~ns-regex ~'namespace)))))))
