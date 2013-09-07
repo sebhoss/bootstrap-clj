@@ -65,10 +65,6 @@
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
-      <artifactId>java.classpath</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
       <artifactId>tools.nrepl</artifactId>
     </dependency>
   </dependencies>
