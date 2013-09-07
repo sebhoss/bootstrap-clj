@@ -7,7 +7,7 @@
 
 (ns bootstrap.repl
   (:require [clojure.java.classpath :refer [classpath]]
-            [clojure.tools.namespace.find :refer [find-namespaces]]
+            [clojure.tools.namespace.find :refer [find-namespaces-in-dir]]
             [clojure.string :refer [blank? split]]
             [clojure.test :as test]))
 
@@ -20,14 +20,17 @@
 (defn- require-namespace [[namespace alias]]
   (require (vector namespace :as alias)))
 
-(defn load-namespaces
-  "Loads all namespace on the current classpath matching the given regex."
-  [regex]
-  (let [project-namespace? #(not (blank? (re-find regex (str %))))
-        namespaces (find-namespaces (filter project-namespace? (classpath)))
-        namespace-aliases (map ns-alias-split namespaces)]
+(defn load-ns-aliased
+  "Loads the given namespaces aliased with their last namespace-segment."
+  [namespaces]
+  (let [namespace-aliases (map ns-alias-split namespaces)]
     (when (empty? (remove nil? (map require-namespace namespace-aliases)))
       :ok)))
+
+(defn load-ns-in-dir-aliased
+  "Loads all namespaces in the given directory (recursivly)."
+  [^String dir]
+  (load-ns-aliased (find-namespaces-in-dir (java.io.File. dir))))
 
 (defn load-helpers
   "Loads REPL helper functions. Includes every var from:
