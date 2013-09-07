@@ -2,7 +2,7 @@
 ;   You can redistribute it and/or modify it under the terms of the Do What The Fuck You Want To Public
 ;   License, Version 2, as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
 
-(ns com.github.sebhoss.bootstrap.repl
+(ns bootstrap.repl
   (:require [clojure.java.classpath :refer [classpath]]
             [clojure.tools.namespace.find :refer [find-namespaces]]
             [clojure.string :refer [blank? split]]
