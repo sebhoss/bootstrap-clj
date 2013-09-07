@@ -13,7 +13,7 @@ p. The namespace @bootstrap.repl@ offers the following functions:
 
 h2. Example
 
-p. Place the following in @user.clj@ or a similar file which gets loaded once your REPL session starts. ("see bootstraps own bootstrap":https://github.com/sebhoss/bootstrap-clj/blob/master/src/bootstrap/clojure/com/github/sebhoss/bootstrap/bootstrap.clj )
+p. Place the following in @user.clj@ or a similar file which gets loaded once your REPL session starts. ("see bootstraps own bootstrap":https://github.com/sebhoss/bootstrap-clj/blob/master/src/bootstrap/clojure/bootstrap.clj )
 
 bc.. (require '[bootstrap.repl :refer :all])
 
