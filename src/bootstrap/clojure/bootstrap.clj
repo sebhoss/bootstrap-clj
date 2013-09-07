@@ -8,7 +8,7 @@
 (require '[bootstrap.repl :refer :all])
 
 ; Load project namespaces
-(load-namespaces #".*?bootstrap")
+(load-ns-in-dir-aliased "src/main/clojure")
 
 ; 'clojure.test', 'clojure.repl' and 'clojure.tools.namespace.repl' support
 (load-helpers)

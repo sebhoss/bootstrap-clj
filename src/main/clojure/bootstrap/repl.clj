@@ -6,8 +6,7 @@
 ;
 
 (ns bootstrap.repl
-  (:require [clojure.java.classpath :refer [classpath]]
-            [clojure.tools.namespace.find :refer [find-namespaces-in-dir]]
+  (:require [clojure.tools.namespace.find :refer [find-namespaces-in-dir]]
             [clojure.string :refer [blank? split]]
             [clojure.test :as test]))
 
@@ -28,7 +27,7 @@
       :ok)))
 
 (defn load-ns-in-dir-aliased
-  "Loads all namespaces in the given directory (recursivly)."
+  "Loads all namespaces in the given directory (recursively)."
   [^String dir]
   (load-ns-aliased (find-namespaces-in-dir (java.io.File. dir))))
 
